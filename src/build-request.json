@@ -1,0 +1,399 @@
+{
+  "kind": "build_request",
+  "title": "Build BAJARANGI ENTERPRISES agricultural products website with admin CMS",
+  "projectName": "BAJARANGI ENTERPRISES",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a backend data model for Product with fields: id (Text), name (Text), price (Float), shortDescription (Text), fullDescription (Text), imageUrl (Text), createdAt (Int), updatedAt (Int)",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Add/Edit/Delete products",
+          "Update prices anytime",
+          "Upload product images"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Product type includes all specified fields",
+        "Backend can store and retrieve product data"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Create a backend data model for BusinessInfo with fields: businessName (Text), contactPhone (Text), contactEmail (Text), businessAddress (Text), aboutText (Text)",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Business Name: BAJARANGI ENTERPRISES",
+          "Contact Number: Editable anytime",
+          "Email: Editable anytime",
+          "change address of business"
+        ]
+      },
+      "acceptanceCriteria": [
+        "BusinessInfo type includes all specified fields",
+        "Backend stores single business info record with editable fields"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Implement backend authentication using Internet Identity with a single admin principal stored in stable memory. Include functions: isAdmin(caller: Principal) -> Bool, and protect all write operations (add/edit/delete products, update business info) to require admin authentication",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Secure login",
+          "login or sign up and log out function only for my self"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Admin principal is stored and persisted",
+        "Only authenticated admin can modify data",
+        "Public users can read products and business info without authentication"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement backend CRUD operations for products: addProduct(name, price, shortDescription, fullDescription, imageUrl) -> Result<Product, Text>, updateProduct(id, name, price, shortDescription, fullDescription, imageUrl) -> Result<Product, Text>, deleteProduct(id) -> Result<(), Text>, getProduct(id) -> ?Product, getAllProducts() -> [Product]. All write operations must verify admin authentication",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Add/Edit/Delete products",
+          "Update prices anytime"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All CRUD operations work correctly",
+        "Write operations are protected by admin authentication",
+        "Read operations are publicly accessible"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Implement backend functions for business info management: getBusinessInfo() -> BusinessInfo (public), updateBusinessInfo(businessName, contactPhone, contactEmail, businessAddress, aboutText) -> Result<BusinessInfo, Text> (admin only). Initialize with default values: businessName = 'BAJARANGI ENTERPRISES', contactPhone = '+1234567890', contactEmail = 'contact@bajarangi.com', businessAddress = 'Business Address', aboutText = 'About BAJARANGI ENTERPRISES'",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Business Name: BAJARANGI ENTERPRISES",
+          "Editable phone number, editable email",
+          "Edit contact details",
+          "change address of business and number as well as email can be changed"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Business info is initialized with default values",
+        "Public users can read business info",
+        "Only admin can update business info"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Create a Home page (/home or /) with agriculture-themed hero section, business name 'BAJARANGI ENTERPRISES' prominently displayed, business introduction text fetched from backend BusinessInfo, and a 'View Products' button that navigates to the Products page",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Home Page – Agriculture-themed design with images (fields, crops, farmers), business introduction, and 'View Products' button"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Home page displays business name and introduction",
+        "View Products button navigates to products listing",
+        "Page uses agriculture theme with green colors"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Create a Products page (/products) with a responsive grid layout displaying product cards. Each card shows: product image, product name, current price, short description, and a 'Call to Order' button that opens the device's phone dialer with the business contact number from backend",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Products Page – Grid layout with product image, name, price (editable), short description, and 'Call to Order' button",
+          "order by directly calling the given phone number"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Products are displayed in a responsive grid",
+        "Each card shows all required product information",
+        "Call to Order button initiates phone call with business number"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Create a Product Details page (/products/:id) displaying: large product image, full product description, current price, product name, and a 'Click to Call' button that opens the device's phone dialer with the business contact number",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Product Details Page – Large image, description, updated price, and click-to-call button"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Product details page shows complete product information",
+        "Large image is prominently displayed",
+        "Click to Call button initiates phone call"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Create an About Us page (/about) displaying information about BAJARANGI ENTERPRISES fetched from backend BusinessInfo.aboutText field, with agriculture-themed styling",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "About Us Page – Information about BAJARANGI ENTERPRISES"
+        ]
+      },
+      "acceptanceCriteria": [
+        "About page displays business information from backend",
+        "Page follows agriculture theme styling"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Create a Contact page (/contact) displaying: business phone number (clickable to call), business email (clickable mailto link), business address, and a simple contact form with fields for name, email, phone, and message. All contact details are fetched from backend BusinessInfo",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Contact Page – Editable phone number, editable email, and simple contact form"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Contact page displays all business contact details",
+        "Phone and email are clickable",
+        "Contact form includes all specified fields"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Implement admin authentication UI with Internet Identity integration: Login button in header (visible when not authenticated), Logout button in header (visible when authenticated as admin), protected route wrapper that redirects non-admin users away from admin pages",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Secure login",
+          "add login or sign up and log out function only for my self"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Login/Logout buttons appear appropriately based on auth state",
+        "Admin pages are protected from unauthorized access",
+        "Internet Identity authentication flow works correctly"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Create an Admin Dashboard page (/admin) accessible only to authenticated admin, with navigation to: Manage Products, Edit Business Info sections. Display current business name and admin status",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Admin Features",
+          "where i can access the web and can list items and their prices"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Admin dashboard is only accessible when authenticated",
+        "Dashboard provides clear navigation to admin features"
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Create an Admin Products Management page (/admin/products) with: product listing table showing name, price, and actions; 'Add New Product' button opening a form modal; Edit button for each product opening edit form modal; Delete button with confirmation dialog; Forms include fields for name, price, short description, full description, and image URL input with preview",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Add/Edit/Delete products",
+          "Update prices anytime",
+          "Upload product images"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Admin can view all products in a table",
+        "Add/Edit forms include all product fields with validation",
+        "Delete requires confirmation",
+        "Image URL shows preview when entered",
+        "All operations call backend endpoints correctly"
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "Create an Admin Business Info Editor page (/admin/business-info) with a form to edit: Business Name, Contact Phone, Contact Email, Business Address, About Text. Include Save button and success/error feedback",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Edit contact details",
+          "change address of business and number as well as email can be changed"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Form displays current business info from backend",
+        "All fields are editable",
+        "Save button updates backend successfully",
+        "User receives feedback on save success or failure"
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "text": "Implement a responsive navigation header component visible on all pages with: Business logo/name, navigation links (Home, Products, About, Contact), Admin/Login button (context-sensitive), mobile hamburger menu for small screens. Use green agriculture color scheme",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "mobile-friendly",
+          "Green agriculture theme",
+          "Clean and modern layout"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Header is visible and functional on all pages",
+        "Navigation works on desktop and mobile",
+        "Green color scheme is applied consistently"
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "text": "Apply mobile-responsive design across all pages using Tailwind CSS responsive utilities, ensuring layouts adapt properly for mobile, tablet, and desktop viewports. Product grids should show 1 column on mobile, 2 on tablet, 3-4 on desktop",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "mobile-friendly business website",
+          "Clean and modern layout"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All pages are fully responsive",
+        "Product grid adapts to screen size",
+        "Touch interactions work properly on mobile"
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "text": "Apply a consistent green agriculture theme throughout the website with: Primary green color (#22c55e or similar agricultural green) for buttons and accents, earth tones for backgrounds, clean typography, nature-inspired design elements. Use Tailwind's color utilities",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Green agriculture theme",
+          "Clean and modern layout",
+          "Agriculture-themed design"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Green color scheme is applied consistently across all pages",
+        "Design evokes agricultural/nature theme",
+        "Colors are accessible and professional"
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "text": "Add HTML meta tags for SEO optimization including: page titles describing each page, meta descriptions for main pages, Open Graph tags for social sharing with business name and description, mobile viewport meta tag",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "SEO-friendly",
+          "Make it shareable to other through link"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All main pages have descriptive titles and meta descriptions",
+        "Open Graph tags enable proper link previews",
+        "Mobile viewport is configured correctly"
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "text": "Display generated agriculture-themed images as static assets from frontend/public/assets/generated. Include hero image on Home page, product placeholder images on Products page, and background images for About and Contact pages",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Agriculture-themed design with images (fields, crops, farmers)",
+          "Agriculture-related images for attractive look"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Generated images are properly integrated as static assets",
+        "Images enhance the agriculture theme on all relevant pages",
+        "Images load efficiently and are responsive"
+      ]
+    }
+  ],
+  "constraints": [
+    "Use Internet Identity for authentication (single admin only)",
+    "No online payment system or e-commerce checkout",
+    "Phone orders only via click-to-call buttons",
+    "Single-actor Motoko backend architecture",
+    "All image references must use URLs or paths (no file upload processing in backend)"
+  ],
+  "nonGoals": [
+    "Online payment processing",
+    "Shopping cart functionality",
+    "Multi-user admin system",
+    "Email sending from contact form",
+    "Customer accounts or registration",
+    "Inventory management",
+    "Order tracking system"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Agriculture hero image showing green crop fields and blue sky for home page header (hero-agriculture.dim_1920x600.png)",
+      "Farmer in field illustration showing person working with crops for about page (farmer-working.dim_800x600.png)",
+      "Fresh vegetables and crops product photo showing variety of agricultural produce (products-showcase.dim_1200x800.png)",
+      "Agriculture contact background with field landscape for contact page (contact-background.dim_1600x900.png)",
+      "Wheat or grain close-up photo for page decorative elements (grain-texture.dim_600x400.png)",
+      "Green tractor icon or illustration for business branding (tractor-icon.dim_200x200.png)"
+    ],
+    "edits": []
+  }
+}

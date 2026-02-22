@@ -1,0 +1,382 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "BAJARANGI ENTERPRISES Agricultural Products Website - Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-6",
+      "summary": "Create Home page with agriculture hero section, business name display, introduction text, and View Products button",
+      "acceptanceCriteria": [
+        "Home page displays business name and introduction",
+        "View Products button navigates to products listing",
+        "Page uses agriculture theme with green colors"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "create",
+          "description": "Create Home page component with agriculture-themed hero section displaying the generated hero image from frontend/public/assets/generated/hero-agriculture.dim_1920x600.png. Include business name 'BAJARANGI ENTERPRISES' as prominent heading, fetch and display business introduction text from backend getBusinessInfo().aboutText, and add 'View Products' button navigating to /products. Apply green agriculture color scheme using Tailwind utilities."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for Home page at path '/' rendering the Home component. Import and register the Home component in the router configuration."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Create Products page with responsive grid of product cards showing image, name, price, short description, and Call to Order button",
+      "acceptanceCriteria": [
+        "Products are displayed in a responsive grid",
+        "Each card shows all required product information",
+        "Call to Order button initiates phone call with business number"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Products.tsx",
+          "operation": "create",
+          "description": "Create Products page component that fetches all products via backend getAllProducts(). Display products in a responsive Tailwind grid (grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4). For each product, render a card showing product image, name, price formatted as currency, short description, and 'Call to Order' button. The button uses tel: protocol linking to business phone fetched from getBusinessInfo().contactPhone. Include the generated showcase image frontend/public/assets/generated/products-showcase.dim_1200x800.png as a page header or fallback for products without images."
+        },
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "create",
+          "description": "Create reusable ProductCard component accepting product data (id, name, price, shortDescription, imageUrl) and businessPhone as props. Render card with product image, name as heading, formatted price, short description excerpt, and 'Call to Order' button using tel: protocol with businessPhone. Add click handler to navigate to product details at /products/{id}. Style with Tailwind classes using green agriculture theme."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for Products page at path '/products' rendering the Products component. Import and register the Products component in the router configuration."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Create Product Details page showing large image, full description, price, name, and Click to Call button",
+      "acceptanceCriteria": [
+        "Product details page shows complete product information",
+        "Large image is prominently displayed",
+        "Click to Call button initiates phone call"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ProductDetail.tsx",
+          "operation": "create",
+          "description": "Create ProductDetail page component that extracts product id from route params, fetches product data via backend getProduct(id) and business info via getBusinessInfo(). Display large product image prominently, product name as page heading, full description text, formatted price, and 'Click to Call' button using tel: protocol with business contact phone. Handle loading and error states. Style with agriculture theme using green accents."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for Product Details page at path '/products/:id' rendering the ProductDetail component with dynamic id parameter. Import and register the ProductDetail component in the router configuration."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Create About Us page displaying business information with agriculture-themed styling",
+      "acceptanceCriteria": [
+        "About page displays business information from backend",
+        "Page follows agriculture theme styling"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/About.tsx",
+          "operation": "create",
+          "description": "Create About page component that fetches business information via backend getBusinessInfo() and displays BusinessInfo.aboutText content. Include the generated farmer working image frontend/public/assets/generated/farmer-working.dim_800x600.png to complement the about text. Style with agriculture theme using green colors, earth tones, and nature-inspired design elements. Format text content with proper typography and spacing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for About page at path '/about' rendering the About component. Import and register the About component in the router configuration."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Create Contact page with clickable phone/email, business address, and contact form with name, email, phone, message fields",
+      "acceptanceCriteria": [
+        "Contact page displays all business contact details",
+        "Phone and email are clickable",
+        "Contact form includes all specified fields"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Contact.tsx",
+          "operation": "create",
+          "description": "Create Contact page component that fetches business contact details via backend getBusinessInfo(). Display clickable phone number using tel: protocol, clickable email using mailto: protocol, and business address as formatted text. Include contact form with fields: name (text input), email (email input), phone (tel input), and message (textarea). Use the generated contact background image frontend/public/assets/generated/contact-background.dim_1600x900.png as page background or header. Style form with green agriculture theme and proper validation states. Form is for display only (no backend submission per nonGoals)."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for Contact page at path '/contact' rendering the Contact component. Import and register the Contact component in the router configuration."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Implement admin authentication UI with Internet Identity integration, Login/Logout buttons, and protected route wrapper",
+      "acceptanceCriteria": [
+        "Login/Logout buttons appear appropriately based on auth state",
+        "Admin pages are protected from unauthorized access",
+        "Internet Identity authentication flow works correctly"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useAuth.ts",
+          "operation": "create",
+          "description": "Create useAuth hook managing Internet Identity authentication state. Provide methods: login() to initiate II auth flow, logout() to clear session, and expose isAuthenticated boolean and isAdmin boolean state. After successful II login, call backend isAdmin(caller) to verify admin status. Store auth state in React context or local state management."
+        },
+        {
+          "path": "frontend/src/contexts/AuthContext.tsx",
+          "operation": "create",
+          "description": "Create AuthContext provider wrapping the app with authentication state. Manage Internet Identity authentication flow, store authenticated principal, admin status from backend isAdmin check, and provide login/logout functions. Export useAuthContext hook for consuming components."
+        },
+        {
+          "path": "frontend/src/components/ProtectedRoute.tsx",
+          "operation": "create",
+          "description": "Create ProtectedRoute wrapper component that checks authentication and admin status from AuthContext. If user is not authenticated or not admin, redirect to home page or show unauthorized message. Wrap admin routes with this component to enforce access control."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap the app with AuthContext provider to enable authentication throughout the application. Ensure authentication state is available to all routes and components."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Create Admin Dashboard page with navigation to Manage Products and Edit Business Info sections, showing business name and admin status",
+      "acceptanceCriteria": [
+        "Admin dashboard is only accessible when authenticated",
+        "Dashboard provides clear navigation to admin features"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AdminDashboard.tsx",
+          "operation": "create",
+          "description": "Create AdminDashboard page component displaying welcome message with business name fetched from getBusinessInfo().businessName and admin status. Include navigation cards or buttons linking to '/admin/products' (Manage Products) and '/admin/business-info' (Edit Business Info). Style with admin-appropriate layout using green agriculture theme accents."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add protected route for Admin Dashboard at path '/admin' rendering AdminDashboard component wrapped in ProtectedRoute. Import and register the AdminDashboard component in the router configuration with admin authentication guard."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Create Admin Products Management page with product listing table, Add/Edit/Delete functionality, form modals, and image URL preview",
+      "acceptanceCriteria": [
+        "Admin can view all products in a table",
+        "Add/Edit forms include all product fields with validation",
+        "Delete requires confirmation",
+        "Image URL shows preview when entered",
+        "All operations call backend endpoints correctly"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AdminProducts.tsx",
+          "operation": "create",
+          "description": "Create AdminProducts page component fetching products via backend getAllProducts(). Display products in a table with columns: name, price, and action buttons (Edit, Delete). Include 'Add New Product' button opening modal. Edit button opens modal pre-filled with product data. Delete button shows confirmation dialog before calling backend deleteProduct(id). Manage modal visibility state and refresh product list after operations."
+        },
+        {
+          "path": "frontend/src/components/ProductFormModal.tsx",
+          "operation": "create",
+          "description": "Create ProductFormModal component with mode prop ('add' or 'edit') and optional product data for editing. Include form fields: name (text), price (number), shortDescription (textarea), fullDescription (textarea), imageUrl (text with live preview img element below). Implement form validation ensuring all required fields are filled. On submit, call backend addProduct() for add mode or updateProduct() for edit mode. Show success/error feedback and close modal on success."
+        },
+        {
+          "path": "frontend/src/components/ConfirmDialog.tsx",
+          "operation": "create",
+          "description": "Create reusable ConfirmDialog component accepting title, message, onConfirm, and onCancel props. Display modal dialog with message text and Confirm/Cancel buttons styled with agriculture theme. Use for delete product confirmation and other destructive actions."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add protected route for Admin Products page at path '/admin/products' rendering AdminProducts component wrapped in ProtectedRoute. Import and register the AdminProducts component in the router configuration with admin authentication guard."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Create Admin Business Info Editor page with form to edit business name, contact phone, email, address, and about text with save functionality",
+      "acceptanceCriteria": [
+        "Form displays current business info from backend",
+        "All fields are editable",
+        "Save button updates backend successfully",
+        "User receives feedback on save success or failure"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AdminBusinessInfo.tsx",
+          "operation": "create",
+          "description": "Create AdminBusinessInfo page component fetching current business info via backend getBusinessInfo(). Display form with controlled inputs for: businessName (text), contactPhone (tel), contactEmail (email), businessAddress (textarea), aboutText (textarea). Include Save button calling backend updateBusinessInfo() with form values. Show success toast/alert on successful update and error message on failure. Implement form validation for required fields and email format."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add protected route for Admin Business Info page at path '/admin/business-info' rendering AdminBusinessInfo component wrapped in ProtectedRoute. Import and register the AdminBusinessInfo component in the router configuration with admin authentication guard."
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Implement responsive navigation header with business logo/name, navigation links, context-sensitive Admin/Login button, and mobile hamburger menu",
+      "acceptanceCriteria": [
+        "Header is visible and functional on all pages",
+        "Navigation works on desktop and mobile",
+        "Green color scheme is applied consistently"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "create",
+          "description": "Create Header component displaying business name/logo on left, navigation links (Home, Products, About, Contact) in center, and Login/Logout button on right based on auth state from useAuthContext. Show 'Login' when not authenticated and 'Logout' plus optional 'Admin Dashboard' link when authenticated as admin. Implement mobile hamburger menu (hidden on desktop, visible on mobile) that toggles navigation links visibility. Include the generated tractor icon frontend/public/assets/generated/tractor-icon.dim_200x200.png as business logo. Style with green agriculture theme using Tailwind responsive utilities (hidden md:flex for desktop nav, block md:hidden for mobile menu)."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add Header component at the top level of the app layout so it appears on all pages. Import and render Header component before the main route outlet."
+        }
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "summary": "Apply mobile-responsive design across all pages with Tailwind utilities ensuring proper adaptation for mobile, tablet, and desktop viewports",
+      "acceptanceCriteria": [
+        "All pages are fully responsive",
+        "Product grid adapts to screen size",
+        "Touch interactions work properly on mobile"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Products.tsx",
+          "operation": "modify",
+          "description": "Ensure Products page grid uses Tailwind responsive utilities: grid-cols-1 (mobile), md:grid-cols-2 (tablet), lg:grid-cols-3 (desktop), xl:grid-cols-4 (large desktop). Apply responsive spacing, padding, and text sizes throughout the page."
+        },
+        {
+          "path": "frontend/src/pages/ProductDetail.tsx",
+          "operation": "modify",
+          "description": "Apply responsive layout to ProductDetail page using Tailwind utilities. Stack image and details vertically on mobile (flex-col), side-by-side on desktop (md:flex-row). Adjust image size, text sizing, and spacing for different viewports."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Ensure Home page hero section is responsive with proper image scaling, text sizing adjustments (text-2xl md:text-4xl lg:text-5xl), and button sizing for different viewports. Stack elements vertically on mobile, optimize layout for tablet and desktop."
+        },
+        {
+          "path": "frontend/src/pages/Contact.tsx",
+          "operation": "modify",
+          "description": "Apply responsive layout to Contact page. Stack contact info and form vertically on mobile (flex-col), side-by-side on desktop (md:flex-row). Ensure form inputs and text are properly sized for touch interaction on mobile."
+        },
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "modify",
+          "description": "Ensure Header component mobile menu is fully functional with proper touch targets, smooth transitions, and correct responsive breakpoints. Test hamburger menu toggle behavior and navigation link visibility on different screen sizes."
+        }
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "summary": "Apply consistent green agriculture theme throughout the website with primary green color, earth tones, clean typography, and nature-inspired elements",
+      "acceptanceCriteria": [
+        "Green color scheme is applied consistently across all pages",
+        "Design evokes agricultural/nature theme",
+        "Colors are accessible and professional"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define agriculture theme CSS variables and Tailwind customizations. Set primary green color (#22c55e or similar agricultural green) for buttons and accents, earth tones (browns, beiges) for backgrounds, and define custom color palette. Add base styles for typography ensuring clean, readable fonts. Include nature-inspired visual elements like subtle textures or borders. Ensure color contrast meets accessibility standards."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind configuration with custom agriculture theme colors. Define primary green (#22c55e), secondary earth tones, and accent colors in the theme.colors object. Add custom spacing, border radius, or other design tokens that reinforce the agriculture aesthetic. Ensure theme colors are used consistently across all components."
+        },
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "modify",
+          "description": "Apply green agriculture theme to ProductCard component. Use primary green for 'Call to Order' button background, hover states with darker green, earth-tone card backgrounds, and ensure overall styling matches the agriculture aesthetic."
+        },
+        {
+          "path": "frontend/src/pages/AdminProducts.tsx",
+          "operation": "modify",
+          "description": "Apply agriculture theme styling to admin products page including green accents on action buttons, consistent color scheme for table elements, and nature-inspired design touches while maintaining admin interface clarity."
+        }
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "summary": "Add HTML meta tags for SEO optimization including page titles, descriptions, Open Graph tags, and mobile viewport",
+      "acceptanceCriteria": [
+        "All main pages have descriptive titles and meta descriptions",
+        "Open Graph tags enable proper link previews",
+        "Mobile viewport is configured correctly"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Add comprehensive HTML meta tags in <head> section: viewport meta for mobile responsiveness (width=device-width, initial-scale=1.0), descriptive title 'BAJARANGI ENTERPRISES - Agricultural Products', meta description summarizing the business, Open Graph tags (og:title, og:description, og:type=website, og:image using a generated agriculture image) for social media sharing, and charset UTF-8. Ensure mobile viewport is properly configured."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Use React Helmet or document.title to set page-specific title 'Home - BAJARANGI ENTERPRISES' and meta description focusing on home page content (agricultural products introduction). Update Open Graph tags dynamically for home page."
+        },
+        {
+          "path": "frontend/src/pages/Products.tsx",
+          "operation": "modify",
+          "description": "Set page-specific title 'Our Products - BAJARANGI ENTERPRISES' and meta description describing the product catalog. Update Open Graph tags for products page sharing."
+        },
+        {
+          "path": "frontend/src/pages/About.tsx",
+          "operation": "modify",
+          "description": "Set page-specific title 'About Us - BAJARANGI ENTERPRISES' and meta description with business information. Update Open Graph tags for about page sharing."
+        },
+        {
+          "path": "frontend/src/pages/Contact.tsx",
+          "operation": "modify",
+          "description": "Set page-specific title 'Contact Us - BAJARANGI ENTERPRISES' and meta description with contact information. Update Open Graph tags for contact page sharing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "summary": "Display generated agriculture-themed images as static assets including hero image, product placeholders, and background images",
+      "acceptanceCriteria": [
+        "Generated images are properly integrated as static assets",
+        "Images enhance the agriculture theme on all relevant pages",
+        "Images load efficiently and are responsive"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Integrate the generated hero image from frontend/public/assets/generated/hero-agriculture.dim_1920x600.png into the hero section. Use as background image or prominent img element with proper alt text 'Agriculture hero showing green crop fields'. Ensure image is responsive and loads efficiently using appropriate HTML/CSS techniques."
+        },
+        {
+          "path": "frontend/src/pages/Products.tsx",
+          "operation": "modify",
+          "description": "Display the generated products showcase image from frontend/public/assets/generated/products-showcase.dim_1200x800.png as a page header or hero element. Also use the generated grain texture image frontend/public/assets/generated/grain-texture.dim_600x400.png as decorative elements or fallback for products without images. Ensure responsive image loading."
+        },
+        {
+          "path": "frontend/src/pages/About.tsx",
+          "operation": "modify",
+          "description": "Integrate the generated farmer working image from frontend/public/assets/generated/farmer-working.dim_800x600.png into the About page layout to complement the business story. Use with proper alt text 'Farmer working in agricultural field'. Ensure responsive display and efficient loading."
+        },
+        {
+          "path": "frontend/src/pages/Contact.tsx",
+          "operation": "modify",
+          "description": "Use the generated contact background image from frontend/public/assets/generated/contact-background.dim_1600x900.png as a background for the contact section or hero. Ensure proper contrast with overlaid text content and responsive scaling."
+        },
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "modify",
+          "description": "Display the generated tractor icon from frontend/public/assets/generated/tractor-icon.dim_200x200.png as the business logo in the header navigation. Size appropriately for header (e.g., h-10 w-10 or similar) and include alt text 'BAJARANGI ENTERPRISES logo'."
+        }
+      ]
+    }
+  ]
+}

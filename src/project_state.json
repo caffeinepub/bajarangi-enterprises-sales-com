@@ -1,0 +1,249 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Professional mobile-friendly business website for BAJARANGI ENTERPRISES - an agricultural products sales platform with admin CMS for managing products, prices, and contact details. Customers view products and call to order (no online payments).",
+  "architectural_notes": [
+    "Website type: Business/E-commerce catalog (no payment processing)",
+    "Target audience: Agricultural product customers who will call to order",
+    "Admin system: Single-user authentication for owner-only access",
+    "No user registration for customers - public browsing only",
+    "Product management: Full CRUD with image uploads",
+    "Call-to-action: Click-to-call buttons throughout (no cart or checkout)",
+    "Theme: Green agriculture aesthetic with crop/farm imagery"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Agriculture hero image showing green crop fields and blue sky for home page header (hero-agriculture.dim_1920x600.png)\n- Farmer in field illustration showing person working with crops for about page (farmer-working.dim_800x600.png)\n- Fresh vegetables and crops product photo showing variety of agricultural produce (products-showcase.dim_1200x800.png)\n- Agriculture contact background with field landscape for contact page (contact-background.dim_1600x900.png)\n- Wheat or grain close-up photo for page decorative elements (grain-texture.dim_600x400.png)\n- Green tractor icon or illustration for business branding (tractor-icon.dim_200x200.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-home-page-home-or-with-agriculture-themed-hero-section-business-name-bajarangi-enterprises-prominently-displayed-business-introduction-text-fetched-from-backend-businessinfo-and-a-view-products-button-that-navigates-to-the-products-page",
+      "title": "Create a Home page (/home or /) with agriculture-themed hero section, business name 'BAJARANGI ENTERPRISES' prominently displayed, business introduction text fetched from backend BusinessInfo, and a 'View Products' button that navigates to the Products page",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-products-page-products-with-a-responsive-grid-layout-displaying-product-cards-each-card-shows-product-image-product-name-current-price-short-description-and-a-call-to-order-button-that-opens-the-device-s-phone-dialer-with-the-business-contact-number-from-backend",
+      "title": "Create a Products page (/products) with a responsive grid layout displaying product cards. Each card shows: product image, product name, current price, short description, and a 'Call to Order' button that opens the device's phone dialer with the business contact number from backend",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-product-details-page-products-id-displaying-large-product-image-full-product-description-current-price-product-name-and-a-click-to-call-button-that-opens-the-device-s-phone-dialer-with-the-business-contact-number",
+      "title": "Create a Product Details page (/products/:id) displaying: large product image, full product description, current price, product name, and a 'Click to Call' button that opens the device's phone dialer with the business contact number",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-an-about-us-page-about-displaying-information-about-bajarangi-enterprises-fetched-from-backend-businessinfo-abouttext-field-with-agriculture-themed-styling",
+      "title": "Create an About Us page (/about) displaying information about BAJARANGI ENTERPRISES fetched from backend BusinessInfo.aboutText field, with agriculture-themed styling",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-contact-page-contact-displaying-business-phone-number-clickable-to-call-business-email-clickable-mailto-link-business-address-and-a-simple-contact-form-with-fields-for-name-email-phone-and-message-all-contact-details-are-fetched-from-backend-businessinfo",
+      "title": "Create a Contact page (/contact) displaying: business phone number (clickable to call), business email (clickable mailto link), business address, and a simple contact form with fields for name, email, phone, and message. All contact details are fetched from backend BusinessInfo",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-admin-authentication-ui-with-internet-identity-integration-login-button-in-header-visible-when-not-authenticated-logout-button-in-header-visible-when-authenticated-as-admin-protected-route-wrapper-that-redirects-non-admin-users-away-from-admin-pages",
+      "title": "Implement admin authentication UI with Internet Identity integration: Login button in header (visible when not authenticated), Logout button in header (visible when authenticated as admin), protected route wrapper that redirects non-admin users away from admin pages",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-an-admin-dashboard-page-admin-accessible-only-to-authenticated-admin-with-navigation-to-manage-products-edit-business-info-sections-display-current-business-name-and-admin-status",
+      "title": "Create an Admin Dashboard page (/admin) accessible only to authenticated admin, with navigation to: Manage Products, Edit Business Info sections. Display current business name and admin status",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-an-admin-products-management-page-admin-products-with-product-listing-table-showing-name-price-and-actions-add-new-product-button-opening-a-form-modal-edit-button-for-each-product-opening-edit-form-modal-delete-button-with-confirmation-dialog-forms-include-fields-for-name-price-short-description-full-description-and-image-url-input-with-preview",
+      "title": "Create an Admin Products Management page (/admin/products) with: product listing table showing name, price, and actions; 'Add New Product' button opening a form modal; Edit button for each product opening edit form modal; Delete button with confirmation dialog; Forms include fields for name, price, short description, full description, and image URL input with preview",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-an-admin-business-info-editor-page-admin-business-info-with-a-form-to-edit-business-name-contact-phone-contact-email-business-address-about-text-include-save-button-and-success-error-feedback",
+      "title": "Create an Admin Business Info Editor page (/admin/business-info) with a form to edit: Business Name, Contact Phone, Contact Email, Business Address, About Text. Include Save button and success/error feedback",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-responsive-navigation-header-component-visible-on-all-pages-with-business-logo-name-navigation-links-home-products-about-contact-admin-login-button-context-sensitive-mobile-hamburger-menu-for-small-screens-use-green-agriculture-color-scheme",
+      "title": "Implement a responsive navigation header component visible on all pages with: Business logo/name, navigation links (Home, Products, About, Contact), Admin/Login button (context-sensitive), mobile hamburger menu for small screens. Use green agriculture color scheme",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-mobile-responsive-design-across-all-pages-using-tailwind-css-responsive-utilities-ensuring-layouts-adapt-properly-for-mobile-tablet-and-desktop-viewports-product-grids-should-show-1-column-on-mobile-2-on-tablet-3-4-on-desktop",
+      "title": "Apply mobile-responsive design across all pages using Tailwind CSS responsive utilities, ensuring layouts adapt properly for mobile, tablet, and desktop viewports. Product grids should show 1 column on mobile, 2 on tablet, 3-4 on desktop",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-consistent-green-agriculture-theme-throughout-the-website-with-primary-green-color-22c55e-or-similar-agricultural-green-for-buttons-and-accents-earth-tones-for-backgrounds-clean-typography-nature-inspired-design-elements-use-tailwind-s-color-utilities",
+      "title": "Apply a consistent green agriculture theme throughout the website with: Primary green color (#22c55e or similar agricultural green) for buttons and accents, earth tones for backgrounds, clean typography, nature-inspired design elements. Use Tailwind's color utilities",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-html-meta-tags-for-seo-optimization-including-page-titles-describing-each-page-meta-descriptions-for-main-pages-open-graph-tags-for-social-sharing-with-business-name-and-description-mobile-viewport-meta-tag",
+      "title": "Add HTML meta tags for SEO optimization including: page titles describing each page, meta descriptions for main pages, Open Graph tags for social sharing with business name and description, mobile viewport meta tag",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-generated-agriculture-themed-images-as-static-assets-from-frontend-public-assets-generated-include-hero-image-on-home-page-product-placeholder-images-on-products-page-and-background-images-for-about-and-contact-pages",
+      "title": "Display generated agriculture-themed images as static assets from frontend/public/assets/generated. Include hero image on Home page, product placeholder images on Products page, and background images for About and Contact pages",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Home page with agriculture theme, business intro, and View Products button",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Products page with grid layout showing product cards with image, name, price, description, and Call to Order button",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Product details page with large image, full description, price, and click-to-call button",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "About Us page with business information",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Contact page with editable phone, email, and contact form",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Admin authentication system with secure login/logout (single admin user)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Admin CMS to add/edit/delete products with image upload",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Admin ability to update product prices anytime",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Admin ability to edit business contact details (phone, email, address)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Mobile-responsive design with green agriculture theme",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "SEO-friendly structure and metadata",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Shareable website via public URL",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Create a backend data model for Product with fields: id (Text), name (Text), price (Float), shortDescription (Text), fullDescription (Text), imageUrl (Text), createdAt (Int), updatedAt (Int)",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Create a backend data model for BusinessInfo with fields: businessName (Text), contactPhone (Text), contactEmail (Text), businessAddress (Text), aboutText (Text)",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Implement backend authentication using Internet Identity with a single admin principal stored in stable memory. Include functions: isAdmin(caller: Principal) -> Bool, and protect all write operations (add/edit/delete products, update business info) to require admin authentication",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Implement backend CRUD operations for products: addProduct(name, price, shortDescription, fullDescription, imageUrl) -> Result<Product, Text>, updateProduct(id, name, price, shortDescription, fullDescription, imageUrl) -> Result<Product, Text>, deleteProduct(id) -> Result<(), Text>, getProduct(id) -> ?Product, getAllProducts() -> [Product]. All write operations must verify admin authentication",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Implement backend functions for business info management: getBusinessInfo() -> BusinessInfo (public), updateBusinessInfo(businessName, contactPhone, contactEmail, businessAddress, aboutText) -> Result<BusinessInfo, Text> (admin only). Initialize with default values: businessName = 'BAJARANGI ENTERPRISES', contactPhone = '+1234567890', contactEmail = 'contact@bajarangi.com', businessAddress = 'Business Address', aboutText = 'About BAJARANGI ENTERPRISES'",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "BAJARANGI ENTERPRISES Sales.com",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

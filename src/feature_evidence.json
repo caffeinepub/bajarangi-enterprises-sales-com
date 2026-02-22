@@ -1,0 +1,285 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-home-page-home-or-with-agriculture-themed-hero-section-business-name-bajarangi-enterprises-prominently-displayed-business-introduction-text-fetched-from-backend-businessinfo-and-a-view-products-button-that-navigates-to-the-products-page",
+      "featureTitle": "Create a Home page (/home or /) with agriculture-themed hero section, business name 'BAJARANGI ENTERPRISES' prominently displayed, business introduction text fetched from backend BusinessInfo, and a 'View Products' button that navigates to the Products page",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-products-page-products-with-a-responsive-grid-layout-displaying-product-cards-each-card-shows-product-image-product-name-current-price-short-description-and-a-call-to-order-button-that-opens-the-device-s-phone-dialer-with-the-business-contact-number-from-backend",
+      "featureTitle": "Create a Products page (/products) with a responsive grid layout displaying product cards. Each card shows: product image, product name, current price, short description, and a 'Call to Order' button that opens the device's phone dialer with the business contact number from backend",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ProductCard.tsx",
+        "frontend/src/pages/Products.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-product-details-page-products-id-displaying-large-product-image-full-product-description-current-price-product-name-and-a-click-to-call-button-that-opens-the-device-s-phone-dialer-with-the-business-contact-number",
+      "featureTitle": "Create a Product Details page (/products/:id) displaying: large product image, full product description, current price, product name, and a 'Click to Call' button that opens the device's phone dialer with the business contact number",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/ProductDetail.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-an-about-us-page-about-displaying-information-about-bajarangi-enterprises-fetched-from-backend-businessinfo-abouttext-field-with-agriculture-themed-styling",
+      "featureTitle": "Create an About Us page (/about) displaying information about BAJARANGI ENTERPRISES fetched from backend BusinessInfo.aboutText field, with agriculture-themed styling",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/About.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-contact-page-contact-displaying-business-phone-number-clickable-to-call-business-email-clickable-mailto-link-business-address-and-a-simple-contact-form-with-fields-for-name-email-phone-and-message-all-contact-details-are-fetched-from-backend-businessinfo",
+      "featureTitle": "Create a Contact page (/contact) displaying: business phone number (clickable to call), business email (clickable mailto link), business address, and a simple contact form with fields for name, email, phone, and message. All contact details are fetched from backend BusinessInfo",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/Contact.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-admin-authentication-ui-with-internet-identity-integration-login-button-in-header-visible-when-not-authenticated-logout-button-in-header-visible-when-authenticated-as-admin-protected-route-wrapper-that-redirects-non-admin-users-away-from-admin-pages",
+      "featureTitle": "Implement admin authentication UI with Internet Identity integration: Login button in header (visible when not authenticated), Logout button in header (visible when authenticated as admin), protected route wrapper that redirects non-admin users away from admin pages",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/contexts/AuthContext.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-an-admin-dashboard-page-admin-accessible-only-to-authenticated-admin-with-navigation-to-manage-products-edit-business-info-sections-display-current-business-name-and-admin-status",
+      "featureTitle": "Create an Admin Dashboard page (/admin) accessible only to authenticated admin, with navigation to: Manage Products, Edit Business Info sections. Display current business name and admin status",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/AdminDashboard.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-an-admin-products-management-page-admin-products-with-product-listing-table-showing-name-price-and-actions-add-new-product-button-opening-a-form-modal-edit-button-for-each-product-opening-edit-form-modal-delete-button-with-confirmation-dialog-forms-include-fields-for-name-price-short-description-full-description-and-image-url-input-with-preview",
+      "featureTitle": "Create an Admin Products Management page (/admin/products) with: product listing table showing name, price, and actions; 'Add New Product' button opening a form modal; Edit button for each product opening edit form modal; Delete button with confirmation dialog; Forms include fields for name, price, short description, full description, and image URL input with preview",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ConfirmDialog.tsx",
+        "frontend/src/components/ProductFormModal.tsx",
+        "frontend/src/pages/AdminProducts.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-an-admin-business-info-editor-page-admin-business-info-with-a-form-to-edit-business-name-contact-phone-contact-email-business-address-about-text-include-save-button-and-success-error-feedback",
+      "featureTitle": "Create an Admin Business Info Editor page (/admin/business-info) with a form to edit: Business Name, Contact Phone, Contact Email, Business Address, About Text. Include Save button and success/error feedback",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/AdminBusinessInfo.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-14"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-responsive-navigation-header-component-visible-on-all-pages-with-business-logo-name-navigation-links-home-products-about-contact-admin-login-button-context-sensitive-mobile-hamburger-menu-for-small-screens-use-green-agriculture-color-scheme",
+      "featureTitle": "Implement a responsive navigation header component visible on all pages with: Business logo/name, navigation links (Home, Products, About, Contact), Admin/Login button (context-sensitive), mobile hamburger menu for small screens. Use green agriculture color scheme",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Header.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-15"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-mobile-responsive-design-across-all-pages-using-tailwind-css-responsive-utilities-ensuring-layouts-adapt-properly-for-mobile-tablet-and-desktop-viewports-product-grids-should-show-1-column-on-mobile-2-on-tablet-3-4-on-desktop",
+      "featureTitle": "Apply mobile-responsive design across all pages using Tailwind CSS responsive utilities, ensuring layouts adapt properly for mobile, tablet, and desktop viewports. Product grids should show 1 column on mobile, 2 on tablet, 3-4 on desktop",
+      "files": [
+        "frontend/src/components/Header.tsx",
+        "frontend/src/pages/Contact.tsx",
+        "frontend/src/pages/Home.tsx",
+        "frontend/src/pages/ProductDetail.tsx",
+        "frontend/src/pages/Products.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-16"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-consistent-green-agriculture-theme-throughout-the-website-with-primary-green-color-22c55e-or-similar-agricultural-green-for-buttons-and-accents-earth-tones-for-backgrounds-clean-typography-nature-inspired-design-elements-use-tailwind-s-color-utilities",
+      "featureTitle": "Apply a consistent green agriculture theme throughout the website with: Primary green color (#22c55e or similar agricultural green) for buttons and accents, earth tones for backgrounds, clean typography, nature-inspired design elements. Use Tailwind's color utilities",
+      "files": [
+        "frontend/src/components/ProductCard.tsx",
+        "frontend/src/index.css",
+        "frontend/src/pages/AdminProducts.tsx",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-17"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-html-meta-tags-for-seo-optimization-including-page-titles-describing-each-page-meta-descriptions-for-main-pages-open-graph-tags-for-social-sharing-with-business-name-and-description-mobile-viewport-meta-tag",
+      "featureTitle": "Add HTML meta tags for SEO optimization including: page titles describing each page, meta descriptions for main pages, Open Graph tags for social sharing with business name and description, mobile viewport meta tag",
+      "files": [
+        "frontend/index.html",
+        "frontend/src/pages/About.tsx",
+        "frontend/src/pages/Contact.tsx",
+        "frontend/src/pages/Home.tsx",
+        "frontend/src/pages/Products.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-18"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-display-generated-agriculture-themed-images-as-static-assets-from-frontend-public-assets-generated-include-hero-image-on-home-page-product-placeholder-images-on-products-page-and-background-images-for-about-and-contact-pages",
+      "featureTitle": "Display generated agriculture-themed images as static assets from frontend/public/assets/generated. Include hero image on Home page, product placeholder images on Products page, and background images for About and Contact pages",
+      "files": [
+        "frontend/src/components/Header.tsx",
+        "frontend/src/pages/About.tsx",
+        "frontend/src/pages/Contact.tsx",
+        "frontend/src/pages/Home.tsx",
+        "frontend/src/pages/Products.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-19"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
