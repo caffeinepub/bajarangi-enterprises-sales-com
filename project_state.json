@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Building a Canva-like photo editor web app with standard editing tools plus an AI-powered prompt-based editing feature.",
+  "architectural_notes": [
+    "Frontend: React + TypeScript with canvas-based photo editing (e.g., Fabric.js or Konva.js)",
+    "AI editing via prompt will use browser-accessible AI/image APIs (e.g., Cloudflare AI or similar)",
+    "Mobile-responsive UI with drag-and-drop editing canvas"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Dark canvas editor splash/logo mark — abstract geometric camera aperture or creative brush icon in teal on deep dark background (editor-logo.dim_256x256.png)",
+  "existing_features": [
+    {
+      "id": "feature-build-a-full-screen-canvas-based-photo-editor-interface-with-a-dark-professional-design-theme-the-layout-should-have-a-left-tools-panel-a-center-canvas-workspace-a-right-properties-panel-and-a-top-toolbar-with-file-actions",
+      "title": "Build a full-screen canvas-based photo editor interface with a dark, professional design theme. The layout should have a left tools panel, a center canvas workspace, a right properties panel, and a top toolbar with file actions.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-core-photo-editing-tools-on-the-canvas-crop-and-resize-free-hand-drawing-brush-text-overlay-add-style-move-resize-text-shape-tools-rectangle-circle-line-arrow-image-filters-brightness-contrast-saturation-blur-grayscale-sepia-and-sticker-emoji-overlays",
+      "title": "Implement core photo editing tools on the canvas: crop and resize, free-hand drawing/brush, text overlay (add, style, move, resize text), shape tools (rectangle, circle, line, arrow), image filters (brightness, contrast, saturation, blur, grayscale, sepia), and sticker/emoji overlays.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-layer-management-panel-that-shows-all-elements-image-text-shapes-drawings-as-a-stacked-list-users-should-be-able-to-reorder-layers-by-dragging-toggle-visibility-and-delete-individual-layers",
+      "title": "Add a layer management panel that shows all elements (image, text, shapes, drawings) as a stacked list. Users should be able to reorder layers by dragging, toggle visibility, and delete individual layers.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-ai-prompt-editing-panel-labeled-ai-edit-accessible-from-the-toolbar-users-can-type-a-natural-language-instruction-e-g-make-the-background-blue-add-a-sunset-glow-effect-remove-the-background-and-the-system-applies-a-simulated-or-css-canvas-based-transformation-to-the-current-canvas-image-store-the-prompt-history-in-the-backend-so-users-can-revisit-past-ai-edits",
+      "title": "Add an AI Prompt Editing panel (labeled 'AI Edit') accessible from the toolbar. Users can type a natural language instruction (e.g., 'make the background blue', 'add a sunset glow effect', 'remove the background') and the system applies a simulated or CSS/canvas-based transformation to the current canvas image. Store the prompt history in the backend so users can revisit past AI edits.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-sleek-dark-mode-design-theme-throughout-the-editor-deep-charcoal-slate-background-for-panels-bright-accent-color-teal-or-amber-not-blue-purple-for-active-tools-and-buttons-clean-sans-serif-typography-subtle-panel-borders-and-smooth-hover-active-transitions-on-all-interactive-elements",
+      "title": "Apply a sleek dark-mode design theme throughout the editor: deep charcoal/slate background for panels, bright accent color (teal or amber, NOT blue/purple) for active tools and buttons, clean sans-serif typography, subtle panel borders, and smooth hover/active transitions on all interactive elements.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Canva-like photo editor with standard tools (crop, resize, filters, text, shapes, etc.)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "AI-powered prompt-based image editing feature (edit photos by describing changes in natural language)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Implement backend storage for AI prompt history. Each record should store the prompt text, the timestamp, and a transformation descriptor string. Expose query and mutation functions to save a new prompt entry and retrieve all saved prompt entries.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "JARVIS AI Assistant / Canva Photo Editor",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

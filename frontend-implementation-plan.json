@@ -1,0 +1,239 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "AI Canvas Editor - Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Build full-screen canvas-based photo editor interface with dark professional design, left tools panel, center canvas workspace, right properties panel, and top toolbar with file actions",
+      "acceptanceCriteria": [
+        "Full-screen editor layout renders correctly on desktop and mobile",
+        "Left panel shows tool icons (crop, text, shapes, draw, filters, etc.)",
+        "Center canvas area displays the image being edited",
+        "Right panel shows context-sensitive properties for the selected tool",
+        "Top toolbar includes Upload Image, Download, Undo, and Redo buttons"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Editor.tsx",
+          "operation": "create",
+          "description": "Create the main editor page component with full-screen layout containing left tools panel, center canvas workspace, right properties panel, and top toolbar. Include Upload Image, Download, Undo, and Redo buttons in the toolbar. Include the generated editor logo from frontend/public/assets/generated/editor-logo.dim_256x256.png in the toolbar as branding."
+        },
+        {
+          "path": "frontend/src/components/editor/ToolsPanel.tsx",
+          "operation": "create",
+          "description": "Create left-side tools panel component displaying tool icons for crop, text, shapes, draw, filters, AI Edit, and layers. Use teal accent color for active tool selection against dark background."
+        },
+        {
+          "path": "frontend/src/components/editor/CanvasWorkspace.tsx",
+          "operation": "create",
+          "description": "Create center canvas workspace component that renders the HTML5 canvas element for image editing. This component will host the main editing surface."
+        },
+        {
+          "path": "frontend/src/components/editor/PropertiesPanel.tsx",
+          "operation": "create",
+          "description": "Create right-side properties panel component that displays context-sensitive controls based on the currently selected tool (e.g., brush size for draw tool, text styling for text tool, filter sliders for filters)."
+        },
+        {
+          "path": "frontend/src/components/editor/EditorToolbar.tsx",
+          "operation": "create",
+          "description": "Create top toolbar component with Upload Image button (file input), Download button (export canvas as PNG), Undo button, and Redo button. Style with dark theme and teal accent colors."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route registration for /editor path that renders the Editor page component. Ensure the editor route is accessible without authentication requirements."
+        },
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "modify",
+          "description": "Add navigation link to the Editor page in the main header navigation menu."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement core photo editing tools: crop/resize, free-hand drawing/brush, text overlay (add, style, move, resize), shape tools (rectangle, circle, line, arrow), image filters (brightness, contrast, saturation, blur, grayscale, sepia), sticker/emoji overlays, undo/redo, and download as PNG",
+      "acceptanceCriteria": [
+        "User can upload a local image (JPEG/PNG) to the canvas",
+        "Crop tool allows selecting a region and applying the crop",
+        "Resize panel accepts custom width/height values",
+        "Drawing tool lets user paint on canvas with selectable brush size and color",
+        "Text tool lets user click on canvas to add, move, resize, and style text",
+        "Shape tool renders basic shapes on the canvas",
+        "Filter sliders adjust brightness, contrast, saturation, blur, grayscale, and sepia in real time",
+        "Undo/Redo actions work across all editing operations",
+        "Download button exports the final edited image as PNG"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useCanvasEditor.ts",
+          "operation": "create",
+          "description": "Create custom hook that manages canvas state, tool selection, undo/redo history stack, and coordinates all editing operations. Export functions for image upload, crop, resize, draw, add text, add shapes, apply filters, undo, redo, and export."
+        },
+        {
+          "path": "frontend/src/components/editor/tools/CropTool.tsx",
+          "operation": "create",
+          "description": "Create crop tool component that allows users to select a rectangular region on the canvas and apply the crop. Include crop region overlay rendering and apply button in properties panel."
+        },
+        {
+          "path": "frontend/src/components/editor/tools/DrawTool.tsx",
+          "operation": "create",
+          "description": "Create drawing/brush tool component enabling free-hand painting on canvas. Include brush size and color picker controls in the properties panel."
+        },
+        {
+          "path": "frontend/src/components/editor/tools/TextTool.tsx",
+          "operation": "create",
+          "description": "Create text tool component allowing users to click on canvas to add text overlays. Include text input, font family selector, font size slider, color picker, bold/italic toggles, and text alignment options in properties panel. Support dragging and resizing text elements."
+        },
+        {
+          "path": "frontend/src/components/editor/tools/ShapeTool.tsx",
+          "operation": "create",
+          "description": "Create shape tool component for rendering rectangle, circle, line, and arrow shapes on canvas. Include shape type selector, stroke color, fill color, and stroke width controls in properties panel."
+        },
+        {
+          "path": "frontend/src/components/editor/tools/FilterTool.tsx",
+          "operation": "create",
+          "description": "Create filter tool component with real-time sliders for brightness, contrast, saturation, blur, and toggle buttons for grayscale and sepia effects. Apply CSS filters or canvas pixel manipulation to the image layer."
+        },
+        {
+          "path": "frontend/src/components/editor/tools/ResizeTool.tsx",
+          "operation": "create",
+          "description": "Create resize tool component with input fields for custom width and height values. Include aspect ratio lock toggle and apply button to resize the canvas image."
+        },
+        {
+          "path": "frontend/src/utils/canvasOperations.ts",
+          "operation": "create",
+          "description": "Create utility module with functions for canvas manipulation: image loading, cropping, resizing, drawing paths, rendering text, rendering shapes, applying filters, and exporting canvas to PNG blob."
+        },
+        {
+          "path": "frontend/src/types/editor.ts",
+          "operation": "create",
+          "description": "Define TypeScript types for editor state including ToolType enum (crop, draw, text, shape, filter, aiEdit, layers), CanvasElement interface (for text, shapes, drawings), FilterState, HistoryEntry, and EditorState."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add layer management panel showing all elements (image, text, shapes, drawings) as a stacked list with drag-to-reorder, visibility toggle, and delete functionality",
+      "acceptanceCriteria": [
+        "Layers panel displays all canvas elements in order",
+        "Layers can be reordered via drag-and-drop",
+        "Each layer has a visibility toggle (eye icon)",
+        "Each layer has a delete button",
+        "Canvas updates immediately to reflect layer changes"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/editor/LayersPanel.tsx",
+          "operation": "create",
+          "description": "Create layers panel component displaying a stacked list of all canvas elements (image, text, shapes, drawings). Implement drag-and-drop reordering using HTML5 drag API or a library. Include eye icon for visibility toggle and trash icon for delete action per layer. Render layer thumbnails or type icons for visual identification."
+        },
+        {
+          "path": "frontend/src/hooks/useCanvasEditor.ts",
+          "operation": "modify",
+          "description": "Extend the canvas editor hook to manage layers array with reordering, visibility toggling, and deletion functions. Ensure canvas re-renders when layer order or visibility changes."
+        },
+        {
+          "path": "frontend/src/components/editor/ToolsPanel.tsx",
+          "operation": "modify",
+          "description": "Add a Layers tool icon to the left tools panel that activates the layers management view in the properties panel or as an overlay."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Add AI Prompt Editing panel accessible from toolbar where users can type natural language instructions to apply simulated canvas/CSS transformations, with backend-stored prompt history",
+      "acceptanceCriteria": [
+        "A clearly labeled 'AI Edit' button or panel tab is visible in the editor UI",
+        "Clicking it opens a prompt input area with a text field and an 'Apply' button",
+        "The user can type a natural language editing instruction and submit it",
+        "The system interprets the prompt and applies a canvas transformation (color adjustments, filters, overlays, blur, vignette, etc.) based on keywords in the prompt",
+        "A loading/processing indicator is shown while the AI edit is being computed",
+        "After applying, the result is shown on the canvas and can be undone",
+        "A history of submitted prompts is saved to the backend and displayed in the AI Edit panel",
+        "Backend stores prompt text, timestamp, and a transformation descriptor per prompt entry"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/editor/AIEditPanel.tsx",
+          "operation": "create",
+          "description": "Create AI Edit panel component with a text area for prompt input, an Apply button, and a loading spinner. Display the prompt history list fetched from the backend below the input area, showing timestamp and prompt text for each entry. When Apply is clicked, parse the prompt text for keywords (e.g., 'blue background', 'sunset glow', 'remove background', 'blur', 'brighten', 'darken', 'sepia', 'grayscale', 'vignette') and apply corresponding canvas/CSS transformations. Save the prompt and transformation descriptor to the backend after applying."
+        },
+        {
+          "path": "frontend/src/utils/promptParser.ts",
+          "operation": "create",
+          "description": "Create utility module for parsing natural language prompts into transformation descriptors. Implement keyword matching logic for color changes (background, foreground, hue shifts), filter effects (blur, brightness, contrast, saturation, grayscale, sepia), overlays (vignette, gradient), and removal effects (background removal simulation via desaturation or masking). Return a transformation descriptor object describing the operations to apply."
+        },
+        {
+          "path": "frontend/src/hooks/useAIPrompts.ts",
+          "operation": "create",
+          "description": "Create custom hook using React Query to fetch all AI prompt entries from the backend via getAllAIPromptEntries() and to save a new prompt entry via saveAIPromptEntry(promptText, transformationDescriptor). Handle loading and error states."
+        },
+        {
+          "path": "frontend/src/components/editor/ToolsPanel.tsx",
+          "operation": "modify",
+          "description": "Add an 'AI Edit' tool icon to the left tools panel. When selected, display the AIEditPanel component in the properties panel or as an overlay."
+        },
+        {
+          "path": "frontend/src/hooks/useCanvasEditor.ts",
+          "operation": "modify",
+          "description": "Add a function to apply AI prompt transformations to the canvas based on the transformation descriptor returned by the prompt parser. Push the transformation to the undo/redo history stack."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Apply sleek dark-mode design theme: deep charcoal/slate backgrounds, teal or amber accent color (NOT blue/purple) for active tools and buttons, clean sans-serif typography, subtle panel borders, smooth hover/active transitions",
+      "acceptanceCriteria": [
+        "All panels use a dark background (e.g., #1a1a2e or similar deep slate)",
+        "Active/selected tool and buttons use a consistent teal or amber accent color",
+        "Typography is clean and legible against dark backgrounds",
+        "Hover and focus states are visible on all buttons and tool icons",
+        "The canvas workspace area is clearly distinguished from the surrounding UI"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Replace the existing agricultural green theme variables with a dark editor theme. Define CSS custom properties for deep charcoal/slate backgrounds (#1a1a2e or similar), teal accent color for active states (#14b8a6 or similar teal), light text colors for readability, and subtle border colors. Ensure smooth transitions on hover and focus states for interactive elements."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Update Tailwind theme configuration to use the new dark editor color palette with teal accents. Define custom colors for editor-bg (deep slate), editor-panel (slightly lighter slate), editor-accent (teal), editor-text (light gray), and editor-border (subtle gray). Remove or override the agricultural green theme colors."
+        },
+        {
+          "path": "frontend/src/components/editor/ToolsPanel.tsx",
+          "operation": "modify",
+          "description": "Apply dark background styling to the tools panel using the new editor theme colors. Highlight the active tool icon with the teal accent color and add hover transitions."
+        },
+        {
+          "path": "frontend/src/components/editor/PropertiesPanel.tsx",
+          "operation": "modify",
+          "description": "Apply dark background styling to the properties panel. Use teal accent color for sliders, active buttons, and input focus states."
+        },
+        {
+          "path": "frontend/src/components/editor/EditorToolbar.tsx",
+          "operation": "modify",
+          "description": "Style the toolbar with dark background and teal accent color for active/hover states on buttons. Ensure clear visual distinction for Upload, Download, Undo, and Redo actions."
+        },
+        {
+          "path": "frontend/src/components/editor/CanvasWorkspace.tsx",
+          "operation": "modify",
+          "description": "Apply a distinct background color or border to the canvas workspace area to clearly separate it from the surrounding dark panels. Use a slightly lighter shade or a subtle border."
+        },
+        {
+          "path": "frontend/src/components/editor/LayersPanel.tsx",
+          "operation": "modify",
+          "description": "Style the layers panel with dark background, teal accent for selected layer, and smooth hover transitions on layer items."
+        },
+        {
+          "path": "frontend/src/components/editor/AIEditPanel.tsx",
+          "operation": "modify",
+          "description": "Apply dark theme styling to the AI Edit panel with teal accent color for the Apply button and input focus states."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-build-a-full-screen-canvas-based-photo-editor-interface-with-a-dark-professional-design-theme-the-layout-should-have-a-left-tools-panel-a-center-canvas-workspace-a-right-properties-panel-and-a-top-toolbar-with-file-actions",
+      "featureTitle": "Build a full-screen canvas-based photo editor interface with a dark, professional design theme. The layout should have a left tools panel, a center canvas workspace, a right properties panel, and a top toolbar with file actions.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Header.tsx",
+        "frontend/src/components/editor/CanvasWorkspace.tsx",
+        "frontend/src/components/editor/EditorToolbar.tsx",
+        "frontend/src/components/editor/PropertiesPanel.tsx",
+        "frontend/src/components/editor/ToolsPanel.tsx",
+        "frontend/src/pages/Editor.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-core-photo-editing-tools-on-the-canvas-crop-and-resize-free-hand-drawing-brush-text-overlay-add-style-move-resize-text-shape-tools-rectangle-circle-line-arrow-image-filters-brightness-contrast-saturation-blur-grayscale-sepia-and-sticker-emoji-overlays",
+      "featureTitle": "Implement core photo editing tools on the canvas: crop and resize, free-hand drawing/brush, text overlay (add, style, move, resize text), shape tools (rectangle, circle, line, arrow), image filters (brightness, contrast, saturation, blur, grayscale, sepia), and sticker/emoji overlays.",
+      "files": [
+        "frontend/src/components/editor/tools/CropTool.tsx",
+        "frontend/src/components/editor/tools/DrawTool.tsx",
+        "frontend/src/components/editor/tools/FilterTool.tsx",
+        "frontend/src/components/editor/tools/ResizeTool.tsx",
+        "frontend/src/components/editor/tools/ShapeTool.tsx",
+        "frontend/src/components/editor/tools/TextTool.tsx",
+        "frontend/src/hooks/useCanvasEditor.ts",
+        "frontend/src/types/editor.ts",
+        "frontend/src/utils/canvasOperations.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-layer-management-panel-that-shows-all-elements-image-text-shapes-drawings-as-a-stacked-list-users-should-be-able-to-reorder-layers-by-dragging-toggle-visibility-and-delete-individual-layers",
+      "featureTitle": "Add a layer management panel that shows all elements (image, text, shapes, drawings) as a stacked list. Users should be able to reorder layers by dragging, toggle visibility, and delete individual layers.",
+      "files": [
+        "frontend/src/components/editor/LayersPanel.tsx",
+        "frontend/src/components/editor/ToolsPanel.tsx",
+        "frontend/src/hooks/useCanvasEditor.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-an-ai-prompt-editing-panel-labeled-ai-edit-accessible-from-the-toolbar-users-can-type-a-natural-language-instruction-e-g-make-the-background-blue-add-a-sunset-glow-effect-remove-the-background-and-the-system-applies-a-simulated-or-css-canvas-based-transformation-to-the-current-canvas-image-store-the-prompt-history-in-the-backend-so-users-can-revisit-past-ai-edits",
+      "featureTitle": "Add an AI Prompt Editing panel (labeled 'AI Edit') accessible from the toolbar. Users can type a natural language instruction (e.g., 'make the background blue', 'add a sunset glow effect', 'remove the background') and the system applies a simulated or CSS/canvas-based transformation to the current canvas image. Store the prompt history in the backend so users can revisit past AI edits.",
+      "files": [
+        "frontend/src/components/editor/AIEditPanel.tsx",
+        "frontend/src/components/editor/ToolsPanel.tsx",
+        "frontend/src/hooks/useAIPrompts.ts",
+        "frontend/src/hooks/useCanvasEditor.ts",
+        "frontend/src/utils/promptParser.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-sleek-dark-mode-design-theme-throughout-the-editor-deep-charcoal-slate-background-for-panels-bright-accent-color-teal-or-amber-not-blue-purple-for-active-tools-and-buttons-clean-sans-serif-typography-subtle-panel-borders-and-smooth-hover-active-transitions-on-all-interactive-elements",
+      "featureTitle": "Apply a sleek dark-mode design theme throughout the editor: deep charcoal/slate background for panels, bright accent color (teal or amber, NOT blue/purple) for active tools and buttons, clean sans-serif typography, subtle panel borders, and smooth hover/active transitions on all interactive elements.",
+      "files": [
+        "frontend/src/components/editor/AIEditPanel.tsx",
+        "frontend/src/components/editor/CanvasWorkspace.tsx",
+        "frontend/src/components/editor/EditorToolbar.tsx",
+        "frontend/src/components/editor/LayersPanel.tsx",
+        "frontend/src/components/editor/PropertiesPanel.tsx",
+        "frontend/src/components/editor/ToolsPanel.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

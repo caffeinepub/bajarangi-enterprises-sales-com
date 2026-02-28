@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.5rem;
+        
+        /* Agricultural Green Theme - Light Mode */
+        --background: 0.98 0.01 140;
+        --foreground: 0.15 0.02 140;
+        
+        --card: 1 0 0;
+        --card-foreground: 0.15 0.02 140;
+        
+        --popover: 1 0 0;
+        --popover-foreground: 0.15 0.02 140;
+        
+        --primary: 0.58 0.18 145;
+        --primary-foreground: 0.98 0.01 145;
+        
+        --secondary: 0.92 0.02 140;
+        --secondary-foreground: 0.15 0.02 140;
+        
+        --muted: 0.94 0.02 140;
+        --muted-foreground: 0.48 0.02 140;
+        
+        --accent: 0.92 0.02 140;
+        --accent-foreground: 0.15 0.02 140;
+        
+        --destructive: 0.577 0.245 27.325;
+        --destructive-foreground: 0.985 0 0;
+        
+        --border: 0.88 0.02 140;
+        --input: 0.88 0.02 140;
+        --ring: 0.58 0.18 145;
+        
+        --chart-1: 0.58 0.18 145;
+        --chart-2: 0.68 0.15 120;
+        --chart-3: 0.48 0.12 160;
+        --chart-4: 0.75 0.20 100;
+        --chart-5: 0.65 0.16 130;
+        
+        /* Custom agricultural colors */
+        --agricultural-green: 0.58 0.18 145;
+        --agricultural-green-dark: 0.48 0.18 145;
+        --earth-light: 0.94 0.02 80;
+        --earth-medium: 0.75 0.05 60;
+    }
+
+    .dark {
+        --background: 0.15 0.02 140;
+        --foreground: 0.95 0.01 140;
+        
+        --card: 0.18 0.02 140;
+        --card-foreground: 0.95 0.01 140;
+        
+        --popover: 0.18 0.02 140;
+        --popover-foreground: 0.95 0.01 140;
+        
+        --primary: 0.65 0.18 145;
+        --primary-foreground: 0.15 0.02 145;
+        
+        --secondary: 0.25 0.02 140;
+        --secondary-foreground: 0.95 0.01 140;
+        
+        --muted: 0.25 0.02 140;
+        --muted-foreground: 0.65 0.02 140;
+        
+        --accent: 0.30 0.02 140;
+        --accent-foreground: 0.95 0.01 140;
+        
+        --destructive: 0.704 0.191 22.216;
+        --destructive-foreground: 0.95 0.01 0;
+        
+        --border: 0.25 0.02 140;
+        --input: 0.25 0.02 140;
+        --ring: 0.65 0.18 145;
+        
+        --chart-1: 0.65 0.18 145;
+        --chart-2: 0.72 0.15 120;
+        --chart-3: 0.55 0.12 160;
+        --chart-4: 0.78 0.20 100;
+        --chart-5: 0.68 0.16 130;
+        
+        /* Custom agricultural colors for dark mode */
+        --agricultural-green: 0.65 0.18 145;
+        --agricultural-green-dark: 0.55 0.18 145;
+        --earth-light: 0.22 0.02 80;
+        --earth-medium: 0.35 0.05 60;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+}
+
+@layer utilities {
+    .text-agricultural-green {
+        color: oklch(var(--agricultural-green));
+    }
+    
+    .bg-agricultural-green {
+        background-color: oklch(var(--agricultural-green));
+    }
+    
+    .hover\:bg-agricultural-green-dark:hover {
+        background-color: oklch(var(--agricultural-green-dark));
+    }
+    
+    .bg-earth-light {
+        background-color: oklch(var(--earth-light));
+    }
+    
+    .bg-earth-medium {
+        background-color: oklch(var(--earth-medium));
+    }
+    
+    .border-agricultural-green {
+        border-color: oklch(var(--agricultural-green));
+    }
+}

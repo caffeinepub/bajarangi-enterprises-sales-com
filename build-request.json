@@ -1,0 +1,154 @@
+{
+  "kind": "build_request",
+  "title": "Canva-like Photo Editor with AI Prompt Editing",
+  "projectName": "AI Canvas Editor",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Build a full-screen canvas-based photo editor interface with a dark, professional design theme. The layout should have a left tools panel, a center canvas workspace, a right properties panel, and a top toolbar with file actions.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Make a app like canva photo editor with existing tools"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Full-screen editor layout renders correctly on desktop and mobile",
+        "Left panel shows tool icons (crop, text, shapes, draw, filters, etc.)",
+        "Center canvas area displays the image being edited",
+        "Right panel shows context-sensitive properties for the selected tool",
+        "Top toolbar includes Upload Image, Download, Undo, and Redo buttons"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement core photo editing tools on the canvas: crop and resize, free-hand drawing/brush, text overlay (add, style, move, resize text), shape tools (rectangle, circle, line, arrow), image filters (brightness, contrast, saturation, blur, grayscale, sepia), and sticker/emoji overlays.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "canva photo editor with existing tools"
+        ]
+      },
+      "acceptanceCriteria": [
+        "User can upload a local image (JPEG/PNG) to the canvas",
+        "Crop tool allows selecting a region and applying the crop",
+        "Resize panel accepts custom width/height values",
+        "Drawing tool lets user paint on canvas with selectable brush size and color",
+        "Text tool lets user click on canvas to add, move, resize, and style text",
+        "Shape tool renders basic shapes on the canvas",
+        "Filter sliders adjust brightness, contrast, saturation, blur, grayscale, and sepia in real time",
+        "Undo/Redo actions work across all editing operations",
+        "Download button exports the final edited image as PNG"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Add a layer management panel that shows all elements (image, text, shapes, drawings) as a stacked list. Users should be able to reorder layers by dragging, toggle visibility, and delete individual layers.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "canva photo editor with existing tools"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Layers panel displays all canvas elements in order",
+        "Layers can be reordered via drag-and-drop",
+        "Each layer has a visibility toggle (eye icon)",
+        "Each layer has a delete button",
+        "Canvas updates immediately to reflect layer changes"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Add an AI Prompt Editing panel (labeled 'AI Edit') accessible from the toolbar. Users can type a natural language instruction (e.g., 'make the background blue', 'add a sunset glow effect', 'remove the background') and the system applies a simulated or CSS/canvas-based transformation to the current canvas image. Store the prompt history in the backend so users can revisit past AI edits.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "add a feature of editing with prompt by the help of ai by adding ai aid function in the cava"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A clearly labeled 'AI Edit' button or panel tab is visible in the editor UI",
+        "Clicking it opens a prompt input area with a text field and an 'Apply' button",
+        "The user can type a natural language editing instruction and submit it",
+        "The system interprets the prompt and applies a canvas transformation (color adjustments, filters, overlays, blur, vignette, etc.) based on keywords in the prompt",
+        "A loading/processing indicator is shown while the AI edit is being computed",
+        "After applying, the result is shown on the canvas and can be undone",
+        "A history of submitted prompts is saved to the backend and displayed in the AI Edit panel",
+        "Backend stores prompt text, timestamp, and a transformation descriptor per prompt entry"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Implement backend storage for AI prompt history. Each record should store the prompt text, the timestamp, and a transformation descriptor string. Expose query and mutation functions to save a new prompt entry and retrieve all saved prompt entries.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "add a feature of editing with prompt by the help of ai by adding ai aid function in the cava"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend has a stable data structure for prompt history records (id, prompt, transformation, timestamp)",
+        "A mutation endpoint saves a new prompt entry",
+        "A query endpoint returns all saved prompt entries sorted by most recent first",
+        "Data persists across canister upgrades"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Apply a sleek dark-mode design theme throughout the editor: deep charcoal/slate background for panels, bright accent color (teal or amber, NOT blue/purple) for active tools and buttons, clean sans-serif typography, subtle panel borders, and smooth hover/active transitions on all interactive elements.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Make a app like canva photo editor"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All panels use a dark background (e.g., #1a1a2e or similar deep slate)",
+        "Active/selected tool and buttons use a consistent teal or amber accent color",
+        "Typography is clean and legible against dark backgrounds",
+        "Hover and focus states are visible on all buttons and tool icons",
+        "The canvas workspace area is clearly distinguished from the surrounding UI"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not use external AI APIs (OpenAI, Anthropic, etc.); AI prompt editing must be implemented using client-side canvas/CSS transformations driven by keyword parsing of the prompt text",
+    "Do not modify files under frontend/src/hooks/ or frontend/src/components/ui",
+    "Keep all Motoko logic in backend/main.mo"
+  ],
+  "nonGoals": [
+    "Real-time collaboration between multiple users",
+    "Cloud image storage (images stay local in the browser)",
+    "Integration with external stock photo libraries",
+    "Mobile native app features",
+    "Payment or subscription features",
+    "Video editing",
+    "True AI model inference (use keyword-based transformation simulation instead)"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Dark canvas editor splash/logo mark — abstract geometric camera aperture or creative brush icon in teal on deep dark background (editor-logo.dim_256x256.png)"
+    ],
+    "edits": []
+  }
+}
